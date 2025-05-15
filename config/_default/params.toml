@@ -28,3 +28,6 @@ description = 'Mods to enhance your gaming adventures in the digital realms.'
   github = 'https://github.com/aao-fyi/'
   gitlab = 'https://gitlab.com/aao-fyi/'
   kerbalx = 'https://kerbalx.com/hangars/'
+
+[robots]
+  llmsTXT = true
