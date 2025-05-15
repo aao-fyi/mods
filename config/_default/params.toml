@@ -1,0 +1,30 @@
+description = 'Mods to enhance your gaming adventures in the digital realms.'
+
+[postCSS]
+  state = true
+
+[header]
+  brandLogo = true
+  brandText = false
+
+[sidebar]
+  section = false
+  single = false
+
+[breadcrumb]
+  home = true
+  section = true
+  single = true
+
+[copyright]
+  year = '2012'
+
+[links]
+  nexusKSP = 'https://www.nexusmods.com/kerbalspaceprogram/mods/'
+  nexusSkyrim = 'https://www.nexusmods.com/skyrim/mods/'
+  nexusSkyrimSE = 'https://www.nexusmods.com/skyrimspecialedition/mods/'
+  xboxSkyrim = 'https://bethesda.net/mods/skyrim/mod-detail/'
+  codeberg = 'https://codeberg.org/aao-fyi/'
+  github = 'https://github.com/aao-fyi/'
+  gitlab = 'https://gitlab.com/aao-fyi/'
+  kerbalx = 'https://kerbalx.com/hangars/'

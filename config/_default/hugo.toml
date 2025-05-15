@@ -1,0 +1,132 @@
+# Root
+baseURL = 'https://mods.aao.fyi/'
+languageCode = 'en'
+theme = 'codeberg.org/aao-fyi/shock'
+
+# Info
+title = 'mods.aao.fyi'
+copyright = 'aao.fyi'
+
+# Features
+disableHugoGeneratorInject = false
+disableKinds = ['RSS','taxonomy','term']
+enableGitInfo = true
+enableRobotsTXT = true
+
+# Timeout
+timeout = '90s'
+
+# Minify
+[minify]
+  minifyOutput = true
+
+# Build
+[build]
+  # PostCSS
+  writeStats = true
+
+# Module
+[module]
+  # Version
+  [module.hugoVersion]
+    extended = true
+    min = '0.146.0'
+  # Logo
+  [[module.imports]]
+    path = 'codeberg.org/aao-fyi/project-logos'
+  [[module.imports.mounts]]
+    source = 'mods/'
+    target = 'assets/img/logo/'
+
+  # Skyrim
+  [[module.imports]]
+    path = 'codeberg.org/aao-fyi/mods-skyrim'
+  # Desolate Point
+  [[module.imports.mounts]]
+    source = 'desolate-point/README.md'
+    target = 'assets/skyrim/desolate-point/README.md'
+  [[module.imports.mounts]]
+    source = 'desolate-point/images/'
+    target = 'assets/skyrim/desolate-point/images/'
+  # Fort Resource
+  [[module.imports.mounts]]
+    source = 'fort-resource/README.md'
+    target = 'assets/skyrim/fort-resource/README.md'
+  [[module.imports.mounts]]
+    source = 'fort-resource/images/'
+    target = 'assets/skyrim/fort-resource/images/'
+  # Skeever Tail Shack
+  [[module.imports.mounts]]
+    source = 'skeever-tail-shack/images/'
+    target = 'assets/skyrim/skeever-tail-shack/images/'
+  [[module.imports.mounts]]
+    source = 'skeever-tail-shack/README.md'
+    target = 'assets/skyrim/skeever-tail-shack/README.md'
+  # Horker Tusk Homestead
+  [[module.imports.mounts]]
+    source = 'horker-tusk-homestead/images/'
+    target = 'assets/skyrim/horker-tusk-homestead/images/'
+  [[module.imports.mounts]]
+    source = 'horker-tusk-homestead/README.md'
+    target = 'assets/skyrim/horker-tusk-homestead/README.md'
+
+  # Kerbal Space Program
+  [[module.imports]]
+    path = 'codeberg.org/aao-fyi/mods-ksp'
+  # Fawkes
+  [[module.imports.mounts]]
+    source = 'fawkes/images/'
+    target = 'assets/ksp/fawkes/images/'
+  [[module.imports.mounts]]
+    source = 'fawkes/README.md'
+    target = 'assets/ksp/fawkes/README.md'
+  # GalaNet
+  [[module.imports.mounts]]
+    source = 'galanet/images/'
+    target = 'assets/ksp/galanet/images/'
+  [[module.imports.mounts]]
+    source = 'galanet/README.md'
+    target = 'assets/ksp/galanet/README.md'
+
+  # Team Fortress 2
+  # Nav Fortress
+  [[module.imports]]
+    path = 'codeberg.org/aao-fyi/mods-tf2'
+  [[module.imports.mounts]]
+    source = 'nav-fortress/README.md'
+    target = 'assets/tf2/nav-fortress/README.md'
+
+[menu]
+  [[menu.connect]]
+    identifier = 'nexus'
+    name = 'Nexus'
+    weight = '15'
+    color = '#d98f40'
+    url = 'https://next.nexusmods.com/profile/aaofyi/'
+    [menu.connect.params]
+      icon = 'shrink'
+  [[menu.connect]]
+    identifier = 'kerbalx'
+    name = 'KerbalX'
+    weight = '50'
+    color = '#2c5999'
+    url = 'https://kerbalx.com/aao-fyi/'
+  [menu.connect.params]
+      icon = 'square-x'
+  #[[menu.connect]]
+  #  identifier = 'bethesda'
+  #  name = 'Bethesda'
+  #  weight = '20'
+  #  color = '#0ceae2'
+  #  url = ''
+  #  [menu.connect.params]
+  #    icon = 'square'
+  # Footer
+  [[menu.footer]]
+    identifier = 'privacy'
+    name = 'Privacy'
+    url = 'https://aao.fyi/privacy/'
+  [[menu.footer]]
+    identifier = 'sitemap'
+    name = 'Sitemap'
+    url = '/sitemap.xml'

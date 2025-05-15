@@ -1,0 +1,66 @@
+{{ define "main" }}
+  {{ $projectAssetPath := (printf "%s" (strings.TrimPrefix "/" .RelPermalink)) }}
+  {{ $projectREADME := resources.Get (printf "%sREADME.md" $projectAssetPath) }}
+
+  <div class="container">
+    {{/* Project Description */}}
+    {{ if $projectREADME }}
+      {{/* Remove H1 from README */}}
+      {{ $projectREADME = $projectREADME.Content | replaceRE "(?m)^# .*\n" ""}}
+      {{ $projectREADME | .RenderString }}
+    {{ end }}
+    {{ .Content | safeHTML }}
+
+    {{/* Project Links */}}
+    <div class="row py-3">
+      {{ with .Page.Params.nexusKSP }}
+      <div class="col-auto p-2">
+        <a href="{{ printf "%s%s" $.Site.Params.links.nexusKSP . }}" class="btn btn-primary" role="button" target="_blank">KSP Nexus {{ partial "icon" "external-link" }}</a>
+      </div>
+      {{ end }}
+      {{ with .Page.Params.nexusSkyrim }}
+      <div class="col-auto p-2">
+        <a href="{{ printf "%s%s" $.Site.Params.links.nexusSkyrim . }}" class="btn btn-primary" role="button" target="_blank">Skyrim Nexus {{ partial "icon" "external-link" }}</a>
+      </div>
+      {{ end }}
+      {{ with .Page.Params.nexusSkyrimSE }}
+      <div class="col-auto p-2">
+        <a href="{{ printf "%s%s" $.Site.Params.links.nexusSkyrimSE . }}" class="btn btn-primary" role="button" target="_blank">Skyrim SE Nexus {{ partial "icon" "external-link" }}</a>
+      </div>
+      {{ end }}
+      {{ with .Page.Params.xboxSkyrim }}
+      <div class="col-auto p-2">
+        <a href="{{ printf "%s%s" $.Site.Params.links.xboxSkyrim . }}" class="btn btn-primary" role="button" target="_blank">Skyrim Xbox {{ partial "icon" "external-link" }}</a>
+      </div>
+      {{ end }}
+      {{ with .Page.Params.kerbalX }}
+      <div class="col-auto p-2">
+        <a href="{{ printf "%s%s" $.Site.Params.links.kerbalX . }}" class="btn btn-primary" role="button" target="_blank">KerbalX {{ partial "icon" "external-link" }}</a>
+      </div>
+      {{ end }}
+      {{ with .Page.Params.codeberg }}
+      <div class="col-auto p-2">
+        <a href="{{ printf "%s%s" $.Site.Params.links.codeberg . }}" class="btn btn-primary" role="button" target="_blank">Codeberg {{ partial "icon" "external-link" }}</a>
+      </div>
+      {{ end }}
+      {{ with .Page.Params.gitlab }}
+      <div class="col-auto p-2">
+        <a href="{{ printf "%s%s" $.Site.Params.links.gitlab . }}" class="btn btn-primary" role="button" target="_blank">GitLab {{ partial "icon" "external-link" }}</a>
+      </div>
+      {{ end }}
+      {{ with .Page.Params.github }}
+      <div class="col-auto p-2">
+        <a href="{{ printf "%s%s" $.Site.Params.links.github . }}" class="btn btn-primary" role="button" target="_blank">GitHub {{ partial "icon" "external-link" }}</a>
+      </div>
+      {{ end }}
+    </div>
+
+    {{/* Project Images */}}
+    {{ $projectImagesID := (printf "%s-project-images" (urlize .Title)) }}
+    {{ $projectImages := resources.Match (printf "%simages/*" $projectAssetPath) }}
+    {{/* $projectImages = first 4 $projectImages */}}
+    {{ with $projectImages }}
+      {{ partial "carousel" (dict "images" $projectImages) }}
+    {{ end }}
+  </div>
+{{ end }}
