@@ -55,6 +55,13 @@ timeout = '90s'
   [[module.imports.mounts]]
     source = 'fort-resource/images/'
     target = 'assets/skyrim/fort-resource/images/'
+  # Rider Tombs
+  [[module.imports.mounts]]
+    source = 'rider-tombs/images/'
+    target = 'assets/skyrim/rider-tombs/images/'
+  [[module.imports.mounts]]
+    source = 'rider-tombs/README.md'
+    target = 'assets/skyrim/rider-tombs/README.md'
   # Skeever Tail Shack
   [[module.imports.mounts]]
     source = 'skeever-tail-shack/images/'
